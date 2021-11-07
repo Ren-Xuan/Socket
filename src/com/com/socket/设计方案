@@ -1,0 +1,19 @@
+该聊天类程序分为客户端和服务器端口
+服务器端：
+服务器端接受新客户端建立的socket请求
+客户端通过不断轮询，通过serverSocket.accept()方法不断阻塞接受是否有新的客户端请求建立
+每个socket请求都会被存入一个hashmap用来存储和遍历分发消息
+并初始化一个ChatRoomServerThread子线程用来不断处理客户端和服务器端的消息发送与接受
+ChatRoomServerThread的处理流程如下
+			*  得到s的输入流，并包装成BufferedReader
+			*  循环不停的从BufferedReader中读取数据。
+			*  每读到一行数据就将这一行数据转发给所有在线的客户端。
+			*  循环遍历allSockets,得到每一个socket，
+			*  然后得到该socket的输出流，并包装，再向输出流中写数据。
+
+
+
+客户端：
+客户端建立的时候需要手动输入想加入哪个服务器，即ip地址和端口号
+输入自己名称作为聊天室的昵称
+客户端发送信息给服务器端，通过PrintWriter来给服务器端发送内容

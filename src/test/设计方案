@@ -1,0 +1,11 @@
+服务器是一个可并发的ServerThread类
+通过serverSocket.accept()监听不断的客户端请求
+通过可并发的ClientServiceThread类来处理客户端请求
+通过BufferedReader reader来读取客户socket的输入
+通过PrintWriter writer来向客户socket输出
+
+
+客户端：
+连接服务器的时候根据自己输入的服务器地址和端口号连接到服务器
+通过BufferedReader reader来读取服务器socket的输入
+通过PrintWriter writer来向服务器socket输出

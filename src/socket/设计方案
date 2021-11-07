@@ -1,0 +1,13 @@
+
+服务器端：
+服务器端通过ServerSocket建立一个socket服务器，客户端和这个服务器建立连接
+服务器通过定义一个Channel内部类，这个类是代表一个客户端请求的子线程，用于不断接收客户端请求
+所有子线程类放入一个Arraylist内部来作为服务器收到 某一个客户端的信息的时候，再发送给所有客户端界面
+信息的输入输出通过InputStream和outputStream来输入和输出
+
+
+
+客户端：
+客户端通过一个Receive类和Send类接受和发送信息
+receive类通过当前客户端的DataInputStream流接受服务器端发送的信息
+Send类通过当前客户端的DataOutputStream流给服务器端发送消息信息
